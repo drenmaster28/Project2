@@ -1,3 +1,12 @@
-public class arts.centre(){
+import.audience.information.*;
+import java.util.Scanner;
+package arts.centre;
 
+public class Ticket {
+    
+  public static void main(String[] args)
+  {
+    Scanner 
+  }
+  
 }
