@@ -1,21 +1,25 @@
 package audience.information;
 
-public class Audience {
+public class Audience extends Persons {
 	long id;
 	char section;
 	long seatNumber;
 	String phone;
-	// address();
+	Address getAddress = new Address();
 	double price;
 	String offer;
 	
 	
-	public Audience() {
+	public Audience(String fName, String lName) {
+		super(fName, lName);
 		// TODO Auto-generated constructor stub
 	}
 	// enter complete audience data
-	public Audience(long id) {
-		
+	public Audience(String fName, String lName,  long id, String phone, Address Address) {
+		super(fName, lName);
+		this.id = id;
+		this.phone = phone;
+		this.getAddress = Address;
 	}
 	
 	public void setId(long id) {
@@ -58,9 +62,15 @@ public class Audience {
 		return offer;
 	}
 
+	
+	
+	public void issueTicket() {
+	
+		// input detail (Id number, name, section, seat number, phone, price, if any special offer applied and total price).
+	}
 	// check valid section 
 	
-	// input detail 
+	
 	//public 
 	
 	
