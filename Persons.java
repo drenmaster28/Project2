@@ -4,18 +4,14 @@ public class Persons {
 	
 	String fName;
 	String lName;
-	String fullName;
 
-	public Persons() {
-		
-	}
-	public Persons(String fName) {
-		// TODO Auto-generated constructor stub
-	}
 
 	public Persons(String fName, String lName) {
-		this.fullName = (fName  + " " + lName);
+		this.fName = fName;
+		this.lName = lName;
 	}
+
+
 	public void setFName(String fName) {
 		this.fName = fName;
 	}
@@ -29,7 +25,7 @@ public class Persons {
 		return lName;
 	}
 	public String getFullName() {
-		return fullName;
+		return (fName  + " " + lName);
 	}
 	
 }
