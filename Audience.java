@@ -64,7 +64,7 @@ public class Audience extends Persons {
 
 	
 	
-	public issueTicket() {
+	public void issueTicket() {
 	
 		// input detail (Id number, name, section, seat number, phone, price, if any special offer applied and total price).
 	}
