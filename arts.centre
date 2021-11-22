@@ -1,12 +1,81 @@
-import.audience.information.*;
-import java.util.Scanner;
 package arts.centre;
+import audience.information.*;
+
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Ticket {
-    
-  public static void main(String[] args)
-  {
-    Scanner 
-  }
-  
+	
+	public static Scanner input = new Scanner(System.in);
+	public long id;
+	public Audience getId = new Audience(null, null, id, null, null);
+	public issueTicket getIssueTicket = new issueTicket();
+	
+			
+	public static void main(String[] args) {
+		
+		String choice;	
+		
+		System.out.println("--->Menu<---\n" +
+					"A. New Booking\n" + 
+					"B. Changing Seat\n " +
+					"C. Issue a Ticket\n " +
+					"D. Print all booked seats of each section\n" +
+					"E. Exit\n" + 
+					" --> Select option from menu: ");
+			choice = input.nextLine();	
+			choice = choice.toUpperCase();
+			
+			// menu choice
+		switch(choice)			
+			{
+				case "A": 
+					newBooking(); 
+					break;
+				case "B": 
+					changeSeat(); 
+					break;
+				case "C": 
+					printIssuedTicket(); 
+					break;
+				case "D": 
+					printSeats(); 
+					break;
+				case "E": 
+					System.exit(0);
+					break;
+				default : 
+					System.out.println("Invalid option. ");
+			}
+	}
+
+	
+	// menu option A - new booking
+	public static void newBooking() {
+		// TODO Auto-generated method stub
+			
+		}
+	
+	// menu option B - Change Seat
+	public static void changeSeat() {
+		// TODO Auto-generated method stub
+		}
+
+	// menu option C. Issue a ticket
+	public static void printIssuedTicket() {
+		// TODO Auto-generated method stub
+		
+		System.out.println("Enter Audience ID Number: ");
+		long id = input.nextInt();
+		
+		System.out.println(issueTicket());
+	}
+
+	// menu option D - Print all booked seats of each section
+	public static void printSeats() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }
+
