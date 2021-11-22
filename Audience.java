@@ -46,7 +46,7 @@ public class Audience extends Persons {
 	public long getId() {
 		return id;
 	}
-	public char getSction() {
+	public char getSection() {
 		return section;
 	}
 	public long getSeatNumber() {
@@ -64,7 +64,7 @@ public class Audience extends Persons {
 
 	
 	
-	public void issueTicket() {
+	public issueTicket() {
 	
 		// input detail (Id number, name, section, seat number, phone, price, if any special offer applied and total price).
 	}
