@@ -63,9 +63,7 @@ public class Audience extends Persons {
 	public double getPrice() {
 		return price;
 	}
-	public String getOffer() {
-		return offer;
-	}
+	
 
 	//check if Section is valid
 	public boolean isValidSection() {
@@ -83,19 +81,42 @@ public class Audience extends Persons {
 	public void inputDetail(){
 		super.setFName(input.next());
 		super.setLName(input.next());
+
+		
+		System.out.println("Please Enter your address");
 		Address address = new Address();
+		
+		System.out.println("Street Number: ");
 		address.setStreetNumber(input.next());
+		
+		System.out.println("City: ");
 		address.setCity(input.next());
+		
+		System.out.println("State/Province: ");
 		address.setState(input.next());
+
+		System.out.println("Country: ");
 		address.setCountry(input.next());
+		
+		System.out.println("PostCode: ");
 		address.setPostCode(input.next());
 		
+		System.out.println("Please enter your phone number *no dash or space*: ");
 		setphone(input.next());
-		setOffer(input.next());
-		setSection(input.next().charAt(0));
 		
-		System.out.println();
-		setOffer(input.next());
+		System.out.println("Select the Section: ");
+		System.out.println("A: Wheelchair");
+		System.out.println("B: Orchestra");
+		System.out.println("C: Balcony");
+
+		setSection(input.next().toLowerCase().charAt(0));
+		
+		System.out.println("Select Offer base on your Age: ");
+		System.out.println("C. 12 or less");
+		System.out.println("S. 18 or less");
+		System.out.println("A. 64 or less");
+		System.out.println("E. 65 or higher");
+		setOffer(input.next().toUpperCase());
 		
 	}
 	
@@ -108,13 +129,25 @@ public class Audience extends Persons {
 		System.out.println("Seat number: " + getSeatNumber());
 		System.out.println("Phone: " + getPhone());
 		System.out.println("Price: " + getPrice());
-		System.out.println("Discount: " + getOffer());
-		System.out.println("Total Price: " + (getPrice() + (getPrice()* Double.parseDouble(getOffer()))) );
+		System.out.println("Discount: " + getSpecialOffer());
+		System.out.println("Total Price: " + (getPrice() - applyOffer()) );
 	
 	}
-	// check valid section 
-	public void setSpecialOffer() {
-		
+	// check Offer and set discount%
+	public double getSpecialOffer() {
+		if (offer == "A") {
+		return 0;	
+		}else if (offer == "S") {
+		return 0.10;	
+		}else if (offer == "C") {
+		return 0.40;
+		}else if (offer == "E") {
+		return 0.30;
+		}return 0;
 	}	
 	
+	// calculate the discount
+	public double applyOffer() {
+		return getPrice() * getSpecialOffer();
+	}
 }
