@@ -156,5 +156,9 @@ public class Audience extends Persons {
 	public double applyOffer() {
 		return getPrice() * getSpecialOffer();
 	}
-	
+	        @Override
+        public String toString() {
+                return " Id number: " + getId() + " Name: " + fName + " " + lName + " Phone: " + phone
+                        + " Price: " + price + " Discount: " + offer; 
+        }
 }
