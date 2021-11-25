@@ -17,11 +17,6 @@ public class Ticket {
 	//static Persons person = new Persons(fName, lName);
 	public static Audience audience = new Audience(null, null);
 		
-	private static void addToArray() {
-		
-		
-		
-	}
 		
 	public static void main(String[] args) {	
 
@@ -140,14 +135,11 @@ public class Ticket {
 		for (int i = 0; i < audienceArray.length; i++){
 			for (int j = 0; j < audienceArray[i].length; j++) {
 				audience = (Audience)audienceArray.elementAt(i);
-				
 			}
-			
 		}
-		
 	}
 
-	private static void printIssuedTicket(Audience[][] audienceArray, String fullName) {
+	private static void printIssuedTicket(Audience[][] audienceArray) {
 		// TODO Auto-generated method stub
 		
 		System.out.println("C. Issue a Ticket ");
@@ -159,7 +151,7 @@ public class Ticket {
 					
 		for (int i = 0; i < audienceArray.length; i++) {
 			for (int j = 0; j < audienceArray[i].length; j++) {
-				if (audienceArray[i].equals(name)) {
+				if (audienceArray[i][j].equals(name)) {
 					index = i;
 					found = true;
 					break;
@@ -179,4 +171,3 @@ public class Ticket {
 	}
 	
 }
-
