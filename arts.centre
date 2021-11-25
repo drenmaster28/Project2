@@ -229,25 +229,12 @@ public class Ticket {
 
 		System.out.println("Seats booked: ");
 		
-		System.out.println("Select the Section: ");
-		System.out.println("A: Wheelchair");
-		System.out.println("B: Orchestra");
-		System.out.println("C: Balcony");
-		char section= input.next().toLowerCase().charAt(0);
-		
 		for (int i = 0; i < audienceArray.length; i++) {
-		 for (int j = 0; j < audienceArray.length; j++) {
-			 if (section == 'a') {
-				 System.out.print("| Section A " + audienceArray[0][i] + " ");
-			 } else if (section == 'b') {
-				 System.out.print("| Section B " + audienceArray[1][j] + " ");
-			 } else if (section == 'c') {
-				 System.out.print("| Section C " + audienceArray[2][j] + " ");
-			 }	audience.equals(audience);
-		 } System.out.println();
-		
-		//System.out.print("| Row: "+ (i + 1) +  " Seat: " + (j + 1) + ": " + audienceArray[i][j] + " ");
-		//
+			for (int j = 0; j < audienceArray[i].length; j++) {
+			System.out.print("| Section: "+ (i + 1) +  " Seat: " + (j + 1) + ": " + audienceArray[i][j] + " ");
+				audience.equals(audience);
+				//System.out.println(Arrays.deepToString(audienceArray));
+			} System.out.println();
 		}
 	}
 }
