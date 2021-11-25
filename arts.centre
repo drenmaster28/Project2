@@ -1,80 +1,181 @@
 package arts.centre;
 import audience.information.*;
 
+import java.util.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ticket {
 	
-	public static Scanner input = new Scanner(System.in);
-	public long id;
-	public Audience getId = new Audience(null, null, id, null, null);
-	public issueTicket getIssueTicket = new issueTicket();
+	static boolean bookedSeats;
+	int capacity = 60;
+	int sections = 3;	
 	
-			
-	public static void main(String[] args) {
+	static Scanner input = new Scanner(System.in);
+	
+	public static Audience[][] audienceArray;
+	//static Persons person = new Persons(fName, lName);
+	public static Audience audience = new Audience(null, null);
 		
-		String choice;	
+	private static void addToArray() {
 		
-		System.out.println("--->Menu<---\n" +
-					"A. New Booking\n" + 
-					"B. Changing Seat\n " +
-					"C. Issue a Ticket\n " +
-					"D. Print all booked seats of each section\n" +
-					"E. Exit\n" + 
-					" --> Select option from menu: ");
-			choice = input.nextLine();	
-			choice = choice.toUpperCase();
+		
+		
+	}
+		
+	public static void main(String[] args) {	
+
+		Audience audience = new Audience(null, null);
+		Audience[][] audienceArray =  new Audience[3][20];
+		
+		Audience a1 = new Audience("Sandra", "Davis", "505-523-5554");
+		Audience a2 = new Audience("David", "Davis", "505-523-5554");
+		Audience a3 = new Audience("Kelly", "Davis", "505-523-5554");
+		
+		Audience a4 = new Audience("Wilbur", "Hood", "505-543-4104");
+		Audience a5 = new Audience("Wilma", "Willy", "505-444-5575");
+		Audience a6 = new Audience("Walter", "Hood", "505-546-5456");
+		
+		Audience a7 = new Audience("Poppy", "Flowers", "505-123-5474");
+		Audience a8 = new Audience("Willow", "Wilted", "505-523-7744");
+		Audience a9 = new Audience("Sonny", "Sunflower", "505-999-9987");
+		
+		for (int i = 0; i < audienceArray.length; i++) {
+			for (int j = 0; j < audienceArray[i].length; j++) {
+				audienceArray[0][0] = a1;
+				audienceArray[0][1] = a2;
+				audienceArray[0][2] = a3;
+				
+				audienceArray[1][10] = a4;
+				audienceArray[1][11] = a5;
+				audienceArray[1][12] = a6;
+				
+				audienceArray[2][17] = a7;
+				audienceArray[2][18] = a8;
+				audienceArray[2][19] = a9;
+			}	
+		}
+		
+		while (true) {
+			System.out.println(
 			
-			// menu choice
-		switch(choice)			
-			{
-				case "A": 
-					newBooking(); 
-					break;
-				case "B": 
-					changeSeat(); 
-					break;
-				case "C": 
-					printIssuedTicket(); 
-					break;
-				case "D": 
-					printSeats(); 
-					break;
-				case "E": 
-					System.exit(0);
-					break;
-				default : 
-					System.out.println("Invalid option. ");
+					"		----------------->Menu<-----------------\n" +
+					"			A. New Booking\n" + 
+					"			B. Change Seat\n" +
+					"			C. Issue a Ticket\n" +
+					"			D. Print all booked seats of each section\n" +
+					"			E. Exit\n" + 
+					"--> Select Option: ");
+					String choice = input.nextLine();	
+					choice = choice.toUpperCase();
+			
+					switch(choice)			
+					{
+						case "A": 
+							newBooking(audienceArray);								
+							break;
+						case "B": 
+							changeSeat(); 
+							break;
+						case "C": 
+							printIssuedTicket(audienceArray); 
+							break;
+						case "D": 
+							printSeats(audienceArray); 
+							break;
+						case "E": 
+							System.exit(0);
+							break;
+						default : 
+							System.out.println("Invalid option. ");
+					}	
 			}
 	}
-
 	
-	// menu option A - new booking
-	public static void newBooking() {
-		// TODO Auto-generated method stub
+	private static void newBooking(Audience[][] audienceArray) {
+				
+		System.out.println("A. New Booking ");
+		
+		System.out.println("Enter First Name ");
+		String fName = input.next();
+		
+		System.out.println("Enter Last Name ");
+		String lName = input.next();
+		
+		for (int i = 0; i < audienceArray.length; i++) {
+			for (int j = 0; j < audienceArray[i].length; j++) {
+				if (audienceArray[i][j].equals(fName) && audienceArray[i][j].equals(lName)) {
+					System.out.println("Audience already booked " + i + j );
+				} else {
+					System.out.println("Select the Section: ");
+					System.out.println("A: Wheelchair");
+					System.out.println("B: Orchestra");
+					System.out.println("C: Balcony");
+
+					audience.setSection(input.next().toLowerCase().charAt(0));
+					
+					System.out.println("Select Offer base on your Age: ");
+					System.out.println("C. 12 or less");
+					System.out.println("S. 18 or less");
+					System.out.println("A. 64 or less");
+					System.out.println("E. 65 or higher");
+					audience.setOffer(input.next().toUpperCase());
+				}
+			}
+		}
+		
+	}
+	
+	private static void changeSeat() {
+		
+		long seatNum;
+		char section;
+		Audience audience = new Audience(fName, lName);
+		
+		System.out.println("B. Change Seat ");
+		
+		System.out.println("What is your seat Section? ");
+		section = input.next().toLowerCase().charAt(0);
+		
+		for (int i = 0; i < audienceArray.length; i++){
+			for (int j = 0; j < audienceArray[i].length; j++) {
+				audience = (Audience)audienceArray.elementAt(i);
+				
+			}
 			
 		}
-	
-	// menu option B - Change Seat
-	public static void changeSeat() {
-		// TODO Auto-generated method stub
-		}
-
-	// menu option C. Issue a ticket
-	public static void printIssuedTicket() {
-		// TODO Auto-generated method stub
 		
-		System.out.println("Enter Audience ID Number: ");
-		long id = input.nextInt();
-		
-		System.out.println(issueTicket());
 	}
 
-	// menu option D - Print all booked seats of each section
-	public static void printSeats() {
+	private static void printIssuedTicket(Audience[][] audienceArray, String fullName) {
 		// TODO Auto-generated method stub
 		
+		System.out.println("C. Issue a Ticket ");
+		boolean found = false;
+		int index = 0;
+		
+		System.out.println("Name ");
+		String name = input.next();
+					
+		for (int i = 0; i < audienceArray.length; i++) {
+			for (int j = 0; j < audienceArray[i].length; j++) {
+				if (audienceArray[i].equals(name)) {
+					index = i;
+					found = true;
+					break;
+				}
+			} if (found) {
+				audience.issueTicket();
+			} else {
+				System.out.println("Id not found ");
+			}
+		}
+	}
+
+	private static void printSeats(Audience[][] audienceArray) {
+		// TODO Auto-generated method stub
+		System.out.println("D. Print all booked seats: ");
+
 	}
 	
 }
