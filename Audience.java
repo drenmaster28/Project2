@@ -24,6 +24,10 @@ public class Audience extends Persons {
 		this.phone = phone;
 	}
 	
+	public Audience() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public void setId() {
 		this.id = (long)Math.random()*1000000000;
 	}
@@ -123,6 +127,7 @@ public class Audience extends Persons {
 	//prints the details of the audience (Id number, name, section, seat number, phone, price, if any special offer applied and total price)
 	public void issueTicket() {
 	
+		setId();
 		System.out.println("Id number: " + getId());
 		System.out.println("Name: " + super.getFullName());
 		System.out.println("Section: " + getSection());
@@ -146,8 +151,10 @@ public class Audience extends Persons {
 		}return 0;
 	}	
 	
+	
 	// calculate the discount
 	public double applyOffer() {
 		return getPrice() * getSpecialOffer();
 	}
+	
 }
