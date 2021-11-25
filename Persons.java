@@ -9,6 +9,12 @@ public class Persons {
 	public Persons(String fName, String lName) {
 		this.fName = fName;
 		this.lName = lName;
+		
+	}
+
+
+	public Persons() {
+		// TODO Auto-generated constructor stub
 	}
 
 
@@ -18,14 +24,17 @@ public class Persons {
 	public void setLName(String lName) {
 		this.lName = lName;
 	}
+	
 	public String getFName() {
 		return fName;
 	}
 	public String getLName() {
 		return lName;
 	}
+	
 	public String getFullName() {
 		return (fName  + " " + lName);
 	}
 	
 }
+
